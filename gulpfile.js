@@ -30,7 +30,7 @@ gulp.task('sass', function () {
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./src/css/'))
-    .pipe(gulp.dest('./www/css/'))
+    .pipe(gulp.dest('./html/css/'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -41,7 +41,7 @@ gulp.task('sass', function () {
 gulp.task('jsmin', function() {
   return gulp.src('./src/js/**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('./www/js/'));
+    .pipe(gulp.dest('./html/js/'));
 });
 
 // Minify Images
@@ -51,7 +51,7 @@ gulp.task('imagemin', function (){
   .pipe(cache(imagemin({
       interlaced: true
     })))
-  .pipe(gulp.dest('./www/img'));
+  .pipe(gulp.dest('./html/img'));
 });
 
 // BrowserSync Task (Live reload)
@@ -70,7 +70,7 @@ gulp.task('browserSync', function() {
 gulp.task('inlinesource', function () {
   return gulp.src('./src/**/*.html')
     .pipe(inlinesource())
-    .pipe(gulp.dest('./www/'));
+    .pipe(gulp.dest('./html/'));
 });
 
 // Gulp Watch Task
@@ -81,7 +81,7 @@ gulp.task('watch', ['browserSync'], function () {
 
 // Gulp Clean Up Task
 gulp.task('clean', function() {
-  del('www');
+  del('html');
 });
 
 // Gulp Default Task
