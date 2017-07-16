@@ -57,12 +57,13 @@
     margin-right: auto;
   }
 }
+
 .service-icon-performance:before {
   background-image: url(../img/graph.svg);
   background-position: 50% 50%;
 }
 .service-icon-customer:before {
-  background-image: url(../img/bullhorn.svg);
+  background-image: url(../img/news-item-01.jpg);
   background-position: 50% 50%;
 }
 .service-icon-it:before {
@@ -85,8 +86,12 @@
   background-image: url(../img/screen.svg);
   background-position: 50% 50%;
 }
-.service-icon-delivery:before {
+.service-icon-data-visualization:before {
   background-image: url(../img/chart.svg);
+  background-position: 50% 50%;
+}
+.service-icon-git-client:before {
+  background-image: url(../img/git.png);
   background-position: 50% 50%;
 }
 

@@ -156,3 +156,31 @@
     @extend .fade-in-up;
   }
 }
+
+.news-icon {
+  &:before {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.news-icon-koc-eng:before {
+  background-image: url(../img/koc-eng.png);
+  background-position: 50% 50%;
+}
+
+.news-icon-acm-w:before {
+  background-image: url(../img/acm-w.png);
+  background-position: 50% 50%;
+}
+
+.news-icon-bfbs:before {
+  background-image: url(../img/bi_fikir_bi_sirket.png);
+  background-position: 50% 50%;
+}
