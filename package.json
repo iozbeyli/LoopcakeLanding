@@ -32,6 +32,7 @@
     "run-sequence": "^1.1.5"
   },
   "dependencies": {
-    "getbase": "^3.2.2"
+    "getbase": "^3.2.2",
+    "superagent": "^3.5.2"
   }
 }

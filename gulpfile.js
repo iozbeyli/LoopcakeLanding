@@ -46,13 +46,15 @@ gulp.task('jsmin', function() {
 
 // Minify Images
 gulp.task('imagemin', function (){
-  return gulp.src('./src/img/**/*.+(png|jpg|jpeg|gif|svg)')
+  return gulp.src('./src/img/**/*.+(png|jpg|jpeg|gif|svg|pdf)')
   // Caching images that ran through imagemin
   .pipe(cache(imagemin({
       interlaced: true
     })))
   .pipe(gulp.dest('./html/img'));
 });
+
+
 
 // BrowserSync Task (Live reload)
 gulp.task('browserSync', function() {

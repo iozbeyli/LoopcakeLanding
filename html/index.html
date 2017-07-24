@@ -19,7 +19,16 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-103135254-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <div class="banner">
   <div class="header">
     <div class="header-inner container clear">
@@ -302,6 +311,7 @@
           <p>
             ACM Europe Celebration of Women in Computing, womENcourage 2017 is a scientific event, as well as an event aimed at networking and exploring career opportunities for women in computer science and related disciplines. This conference brings together undergraduate and graduate students, as well as researchers and professionals, to present and share their achievements and experience in computer science. We are accepted to present Loopcake on September 6-8.  
           </p>
+          <a href="img/LoopcakeLearningManagementSystemWithVersionControl.pdf" target="blank">Paper</a>
         </li>
         <li class="service-item col-12 col-4-m">
           <h3 class="service-item-heading news-icon news-icon-koc-eng">Koç University 2016-17<br/> Best Senior Project</h3>
@@ -342,7 +352,39 @@
 </div>
 
 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  var submitted = false;
+  function submitForm(form) {
+      var data = { 
+          "name":form.name.value, 
+          "email":form.email.value, 
+          "message":form.message.value, 
+          "institution": form.institution.value, 
+          "country": form.country.value
+        }
+       if(!submitted) {
+        $.ajax({
+          type : "POST",
+          url : "http://165.227.139.238:5567/landing/contact/create",
+          dataType : "json",
+          contentType: "application/json; charset=utf-8",
+          data : JSON.stringify(data),
+          success : function(result) {
+          if(result.success === true){
+            submitted = true;
+            jQuery("#contactForm").css('display',"none");
+            jQuery("#contactCheck").css('display',"inline");
+          }
+          },
+        });
+      }else{
 
+      }
+      
+
+}
+</script>
 <div id="contact" class="animate-block content-block contact-block">
   <div class="contact-block-inner container">
     <div class="clear">
@@ -364,12 +406,10 @@
           </li>
         </ul>
       </div>
-      <div class="contact-block-form col-6-m">
-        <h2 class="fs-2 heading" style="color:white">Contact</h2>
-        <p>
-          Please contact us using contact form below.
-        </p>
-        <form class="contact-form">
+
+      <div  class="contact-block-form col-6-m">
+        <img class="contact-form-check" id="contactCheck" style="display:none"  src="img/checkmark.svg" >
+        <form style="display:inline" id="contactForm" class="contact-form">
           <fieldset class="contact-form-wrap">
             <legend class="sr">Contact Us</legend>
             <div class="pad-top-5 pad-bottom-5">
@@ -381,24 +421,12 @@
               <input name="email" class="field" id="email" type="email" placeholder="Email">
             </div>
             <div class="pad-top-5 pad-bottom-5">
-              <label class="sr" for="subject">Date</label>
-              <input name="subject" class="field" id="subject" type="text" placeholder="Subject">
-            </div>
-            <div class="pad-top-5 pad-bottom-5">
               <label for="message" class="sr">Message</label>
               <textarea placeholder="Message" class="field" name="message" id="message" cols="30" rows="7"></textarea>
             </div>
             <div class="pad-top-5 pad-bottom-5">
-              <label for="country" class="sr">You are a</label>
-              <select name="country" id="country" class="field">
-                <option selected disabled>You are a(n)</option>
-                <option value="Instructor">Instructor</option>
-                <option value="Student">Student</option>
-              </select>
-            </div>
-            <div class="pad-top-5 pad-bottom-5">
               <label for="institution" class="sr">Institution (Optional)</label>
-              <input name="institution" class="field" id="institution" type="text" placeholder="Institution">
+              <input name="institution" class="field" id="institution" type="text" placeholder="Institution (Optional)">
             </div>
             <div class="pad-top-5 pad-bottom-5">
               <label for="country" class="sr">Country (Optional)</label>
@@ -656,7 +684,7 @@
               </select>
             </div>
             <div class="text-right">
-              <input type="submit" class="button button-primary contact-submit" value="Send">
+              <input id="formButton" type="button" onclick="return submitForm(this.form)" class="button button-primary contact-submit" value="Send">
             </div>
           </fieldset>
         </form>

@@ -2419,6 +2419,12 @@ input:-ms-input-placeholder {
   padding: 0;
   margin: 0; }
 
+.contact-form-check {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  width: 50%; }
+
 .contact-list {
   font-size: 13px;
   font-size: 0.8125rem;
