@@ -68,6 +68,8 @@
   position: relative;
   display: block;
   transition: all .3s;
+  width: 265px;
+  height: 265px;
   &:hover {
     & .team-item-content { opacity: 1; }
   }
@@ -109,9 +111,10 @@
   &:after { margin-bottom: 10px; }
 }
 .team-profile-image {
-  width: 100%;
   margin-bottom: 10px;
   margin-top: 5px;
+  width: 265px;
+  height: 265px;
   @include breakpoint(m) {
     width: auto;
     float: left;

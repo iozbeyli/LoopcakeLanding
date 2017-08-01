@@ -2120,7 +2120,9 @@ input:-ms-input-placeholder {
   padding: 0;
   position: relative;
   display: block;
-  transition: all .3s; }
+  transition: all .3s;
+  width: 265px;
+  height: 265px; }
   .team-item:hover .team-item-content {
     opacity: 1; }
 
@@ -2165,9 +2167,10 @@ input:-ms-input-placeholder {
     margin-bottom: 10px; }
 
 .team-profile-image {
-  width: 100%;
   margin-bottom: 10px;
-  margin-top: 5px; }
+  margin-top: 5px;
+  width: 265px;
+  height: 265px; }
   @media only screen and (min-width: 740px) {
     .team-profile-image {
       width: auto;
